@@ -1,0 +1,52 @@
+
+body{
+    background-color:#dfe7ed;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1  {
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+textarea#password {
+    background-color: #dfe7ed;
+}
+
+/* ********* Placeholder in textarea ******* */
+::-webkit-input-placeholder {
+    padding-top: 20px;
+    font-size: 2rem;
+    text-align: center;
+ 
+ }
+
+ .container {
+     background-color: aliceblue;
+     border: 1px solid lightgray;
+     border-radius: 15px;
+     padding-bottom: 20px;
+ }
+
+ /* ********* Buttons **********/
+ .buttonsRow {
+     padding: 20px 50px 20px 50px;
+ }
+
+ 
+ button.btn {
+     font-size: 2rem;
+     border-radius: 60px;
+     padding: 10px 20px 10px 20px;
+ }
+
+ div.btnCol {
+     margin: 5px 0 5px 0;
+ }
+
+ 
