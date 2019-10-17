@@ -10,7 +10,7 @@ var specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 var chosenCharSets = "";
 var password = "";
 
-lengthSelect()
+lengthSelect();
 confirmOption();
 generateChoice();
 checkForChoice();
@@ -23,10 +23,9 @@ console.log(selectSpecial);
 console.log(passwordLength);
 console.log(password);
 
-
 // FUNCTION TO COMBINE USERS CHAR CHOICES
 function generateChoice() {
-  switch(true){
+  switch (true) {
     case selectNumbers:
       chosenCharSets += numbers;
     case selectUpper:
@@ -39,14 +38,13 @@ function generateChoice() {
   }
 }
 
-
-
-function confirmOption(){
+// FUNCTION ASSIGNING VALUE TO CHAR VARIABLES IF USER CHOOSES THEM
+function confirmOption() {
   var Numbers = confirm("Use Numbers?");
   var Upper = confirm("Use Uppercase?");
   var Lower = confirm("Use Lowercase?");
   var Special = confirm("Use Special Characters?");
-  switch(true){
+  switch (true) {
     case Numbers:
       selectNumbers = Numbers;
     case Upper:
@@ -59,15 +57,13 @@ function confirmOption(){
   }
 }
 
-
-
-function checkForChoice(){
-  if(chosenCharSets === ""){
+// FUNCTION CHECKING THAT A CHARACTER SET HAS BEEN CHOSEN
+function checkForChoice() {
+  if (chosenCharSets === "") {
     alert("Must choose a character.");
     confirmOption();
   }
 }
-
 
 // FUNCTION ASKING USER TO CHOOSE BETWEEN 8-128 CHARS
 function lengthSelect() {
@@ -81,7 +77,6 @@ function lengthSelect() {
     alert("Must be between 8-128");
     lengthSelect();
   } else {
-    return passwordLength = entry;
+    return (passwordLength = entry);
   }
 }
-
