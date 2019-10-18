@@ -10,7 +10,10 @@ var check          = false,
     selectLower    = false,
     selectSpecial  = false,
     chosenCharSets = "",
-    passDisplay    = document.querySelector("#password");
+    passDisplay    = document.querySelector("#password"),
+    generate       = document.querySelector("#generate"),
+    copyBtn        = document.querySelector("#copy");
+
 
     
 // FUNCTION TO COPY PASSWORD TO CLIPBOARD
@@ -83,7 +86,7 @@ function lengthSelect() {
 
 // FUNCTION LOOPING THROUGH GENERATING RANDOM PASSWORD
 function generatePassword() {
-  for (i = 0; i < passwordLength; i++) {
+  for (let i = 0; i < passwordLength; i++) {
     // PUSHING RANDOM INDICES OF CHOSENCHARSET INTO PASSWORD ARRAY
     password.push(
       chosenCharSets[
@@ -104,8 +107,7 @@ function init() {
     generateChoice();
     check = checkForChoice();
     generate.addEventListener("click", generatePassword);
-    clipCopy();
-   
+    copyBtn.addEventListener("click", clipCopy);
   }
 }
 
