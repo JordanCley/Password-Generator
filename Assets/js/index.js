@@ -15,9 +15,7 @@ var check          = false,
     
 // FUNCTION TO COPY PASSWORD TO CLIPBOARD
 function clipCopy(){
-  // var copyText = document.querySelector("#password");
   passDisplay.select();
-  // copy.setSelectionRange(0, 9999);
   document.execCommand("copy");
 }
 
@@ -93,7 +91,9 @@ function generatePassword() {
       ]
     );
   }
-  passDisplay.innerHTML = password;
+  // CONVERT ARRAY TO STRING
+  var passwordString = password.join("");
+  passDisplay.innerHTML = passwordString;
 }
 
 // INIT FUNCTION
@@ -109,13 +109,6 @@ function init() {
   }
 }
 
-
 init();
-console.log(passDisplay);
-// console.log(selectNumbers);
-// console.log(selectUpper);
-// console.log(selectLower);
-// console.log(selectSpecial);
-// console.log(passwordLength);
-// console.log("Password " + password);
-// console.log("Chosen charset " + chosenCharSets);
+
+
