@@ -1,27 +1,25 @@
-var passwordLength = 0;
-var selectNumbers = false;
-var selectUpper = false;
-var selectLower = false;
-var selectSpecial = false;
-var numbers = "0123456789";
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUV";
-var lowercase = "abcdefghijklmnopqrstuv";
-var specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-var chosenCharSets = "";
-var password = "";
+var check          = false,
+    numbers        = "0123456789",
+    uppercase      = "ABCDEFGHIJKLMNOPQRSTUV",
+    lowercase      = "abcdefghijklmnopqrstuv",
+    specialChars   = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+    password       = [],
+    passwordLength = 0,
+    selectNumbers  = false,
+    selectUpper    = false,
+    selectLower    = false,
+    selectSpecial  = false,
+    chosenCharSets = "",
+    passDisplay    = document.querySelector("#password");
 
-lengthSelect();
-confirmOption();
-generateChoice();
-checkForChoice();
-generatePassword();
 
-console.log(selectNumbers);
-console.log(selectUpper);
-console.log(selectLower);
-console.log(selectSpecial);
-console.log(passwordLength);
-console.log(password);
+// function clipCopy(){
+//   var copyText = document.querySelector("#generate");
+//   copyText.select();
+//   // copy.setSelectionRange(0, 9999);
+//   document.execCommand("copy");
+// }
+
 
 // FUNCTION TO COMBINE USERS CHAR CHOICES
 function generateChoice() {
@@ -40,28 +38,31 @@ function generateChoice() {
 
 // FUNCTION ASSIGNING VALUE TO CHAR VARIABLES IF USER CHOOSES THEM
 function confirmOption() {
-  var Numbers = confirm("Use Numbers?");
-  var Upper = confirm("Use Uppercase?");
-  var Lower = confirm("Use Lowercase?");
-  var Special = confirm("Use Special Characters?");
-  switch (true) {
-    case Numbers:
-      selectNumbers = Numbers;
-    case Upper:
-      selectUpper = Upper;
-    case Lower:
-      selectLower = Lower;
-    case Special:
-      selectSpecial = Special;
-      break;
+  var number = confirm("Use Numbers?");
+  var upper = confirm("Use Uppercase?");
+  var lower = confirm("Use Lowercase?");
+  var special = confirm("Use Special Characters?");
+  if (number) {
+    chosenCharSets += numbers;
+  }
+  if (upper) {
+    chosenCharSets += uppercase;
+  }
+  if (lower) {
+    chosenCharSets += lowercase;
+  }
+  if (special) {
+    chosenCharSets += specialChars;
   }
 }
 
 // FUNCTION CHECKING THAT A CHARACTER SET HAS BEEN CHOSEN
 function checkForChoice() {
   if (chosenCharSets === "") {
+    check = false;
     alert("Must choose a character.");
-    confirmOption();
+  } else {
+    return true;
   }
 }
 
@@ -80,3 +81,39 @@ function lengthSelect() {
     return (passwordLength = entry);
   }
 }
+
+// FUNCTION LOOPING THROUGH GENERATING RANDOM PASSWORD
+function generatePassword() {
+  for (i = 0; i < passwordLength; i++) {
+    // PUSHING RANDOM INDICES OF CHOSENCHARSET INTO PASSWORD ARRAY
+    password.push(
+      chosenCharSets[
+        Math.floor(Math.random() * Math.floor(chosenCharSets.length))
+      ]
+    );
+  }
+  passDisplay.innerHTML = password;
+}
+
+// INIT FUNCTION
+function init() {
+  lengthSelect();
+  while (!check) {
+    confirmOption();
+    generateChoice();
+    check = checkForChoice();
+    generate.addEventListener("click", generatePassword);
+    // clipCopy();
+   
+  }
+}
+
+
+init();
+// console.log(selectNumbers);
+// console.log(selectUpper);
+// console.log(selectLower);
+// console.log(selectSpecial);
+// console.log(passwordLength);
+// console.log("Password " + password);
+// console.log("Chosen charset " + chosenCharSets);
