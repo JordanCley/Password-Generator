@@ -88,7 +88,7 @@ function generatePassword() {
     // PUSHING RANDOM INDICES OF CHOSENCHARSET INTO PASSWORD ARRAY
     password.push(
       chosenCharSets[
-        Math.floor(Math.random() * Math.floor(chosenCharSets.length))
+        Math.floor(Math.random() * Math.floor(chosenCharSets.length)- 1)
       ]
     );
   }
