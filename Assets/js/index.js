@@ -12,13 +12,14 @@ var check          = false,
     chosenCharSets = "",
     passDisplay    = document.querySelector("#password");
 
-
-// function clipCopy(){
-//   var copyText = document.querySelector("#generate");
-//   copyText.select();
-//   // copy.setSelectionRange(0, 9999);
-//   document.execCommand("copy");
-// }
+    
+// FUNCTION TO COPY PASSWORD TO CLIPBOARD
+function clipCopy(){
+  // var copyText = document.querySelector("#password");
+  passDisplay.select();
+  // copy.setSelectionRange(0, 9999);
+  document.execCommand("copy");
+}
 
 
 // FUNCTION TO COMBINE USERS CHAR CHOICES
@@ -103,13 +104,14 @@ function init() {
     generateChoice();
     check = checkForChoice();
     generate.addEventListener("click", generatePassword);
-    // clipCopy();
+    clipCopy();
    
   }
 }
 
 
 init();
+console.log(passDisplay);
 // console.log(selectNumbers);
 // console.log(selectUpper);
 // console.log(selectLower);
