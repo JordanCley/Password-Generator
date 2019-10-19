@@ -86,6 +86,7 @@ function lengthSelect() {
 
 // FUNCTION LOOPING THROUGH GENERATING RANDOM PASSWORD
 function generatePassword() {
+  password = [];
   for (let i = 0; i < passwordLength; i++) {
     // PUSHING RANDOM INDICES OF CHOSENCHARSET INTO PASSWORD ARRAY
     password.push(
@@ -98,6 +99,8 @@ function generatePassword() {
   var passwordString = password.join("");
   passDisplay.innerHTML = passwordString;
 }
+
+
 
 // INIT FUNCTION
 function init() {
