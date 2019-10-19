@@ -71,16 +71,17 @@ function checkForChoice() {
 // FUNCTION ASKING USER TO CHOOSE BETWEEN 8-128 CHARS
 function lengthSelect() {
   var entry = prompt("Choose password between 8-128 charcters");
-  //   CHECK IF ENTRY IS NOT A NUMBER
-  if (isNaN(entry)) {
-    alert("Must be a number");
+    //   CHECK IF ENTRY IS A WHOLE NUMBER
+  if (isNaN(entry) || entry % 1 != 0) {
+    alert("Must be a whole number");
     lengthSelect();
     // CHECK IF ENTRY IS BETWEEN 8-128
   } else if (entry > 128 || entry < 8) {
     alert("Must be between 8-128");
     lengthSelect();
   } else {
-    return (passwordLength = entry);
+    return passwordLength = (entry);
+    
   }
 }
 
@@ -99,8 +100,6 @@ function generatePassword() {
   var passwordString = password.join("");
   passDisplay.innerHTML = passwordString;
 }
-
-
 
 // INIT FUNCTION
 function init() {
