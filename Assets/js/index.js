@@ -25,16 +25,14 @@ function clipCopy(){
 
 // FUNCTION TO COMBINE USERS CHAR CHOICES
 function generateChoice() {
-  switch (true) {
-    case selectNumbers:
-      chosenCharSets += numbers;
-    case selectUpper:
-      chosenCharSets += uppercase;
-    case selectLower:
-      chosenCharSets += lowercase;
-    case selectSpecial:
-      chosenCharSets += specialChars;
-      break;
+  if(selectNumbers) {
+    chosenCharSets += numbers;
+  } if(selectUpper) {
+    chosenCharSets += uppercase;
+  } if(selectLower) {
+    chosenCharSets += lowercase;
+  } if(selectSpecial) {
+    chosenCharSets += specialChars;
   }
 }
 
